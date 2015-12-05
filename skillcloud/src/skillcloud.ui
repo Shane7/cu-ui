@@ -1,27 +1,21 @@
 {
-  "name": "skillcloud",
+  "name": "skillbar",
   "mainFile": "index.html",
-  "rect": {
-    "left": 520,
-    "top": 350,
-    "right": 920,
-    "bottom": 550
-  },
-  "handlesAbilities": false,
+  "handlesAbilities": true,
   "handlesAnnouncements": false,
   "handlesBeginChat": false,
   "handlesBuilding": false,
-  "handlesCharacter": false,
+  "handlesCharacter": true,
   "handlesChat": false,
-  "handlesConfig": false,
+  "handlesConfig": true,
   "handlesConsole": false,
   "handlesEnemyTarget": false,
   "handlesEquippedGear": false,
   "handlesFriendlyTarget": false,
-  "handlesInput": false,
+  "handlesInput": true,
   "handlesInventory": false,
   "handlesLogging": false,
   "handlesLogin": false,
   "hidden": false,
-  "layer": 1
+  "layer": 2
 }
