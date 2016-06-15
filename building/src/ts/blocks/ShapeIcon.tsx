@@ -42,7 +42,8 @@ class ShapeIcon extends React.Component<ShapeIconProps, ShapeIconState> {
         <img src={ "data:image/png;base64," + this.props.icon }/>
         { this.state.hover
           ? <ToolTip
-              id={this.props.id}
+              shapeId={(this.props.id>>21)&31}
+              typeId={0}
               shape={this.props.shape}
               icon={this.props.icon}/>
           : undefined

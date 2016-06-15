@@ -7,7 +7,8 @@
 import * as React from 'react';
 
 export interface ToolTipProps {
-  id: number;
+  shapeId: number;
+  typeId: number;
   type?: string;
   shape: string;
   icon: string;
@@ -32,8 +33,12 @@ class ToolTip extends React.Component<ToolTipProps, ToolTipState> {
           <img src={'data:image/png;base64,' + this.props.icon}/>
           <div>
             <div>
-              <span className="label">Id:</span>
-              <span className="field">{this.props.id}</span>
+              <span className="label">ShapeId:</span>
+              <span className="field">{this.props.shapeId}</span>
+            </div>
+            <div>
+              <span className="label">TypeId:</span>
+              <span className="field">{this.props.typeId}</span>
             </div>
             <div>
               <span className="label">Shape:</span>

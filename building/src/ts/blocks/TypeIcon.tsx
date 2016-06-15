@@ -46,7 +46,8 @@ class TypeIcon extends React.Component<TypeIconProps, TypeIconState> {
           />
           { this.state.hover
             ? <ToolTip
-                id={this.props.id}
+                shapeId={(this.props.id>>21)&31}
+                typeId={(this.props.id>>2)&4095}
                 type={this.props.type}
                 shape={this.props.shape}
                 icon={this.props.icon}/>
