@@ -1,0 +1,42 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+@font-face {
+  font-family: TitilliumBold;
+  src: url(../fonts/TitilliumWeb-Bold.ttf); }
+
+
+body {
+  overflow: hidden;
+  cursor: default;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.compass {
+  font-family: TitilliumBold;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+  opacity: 0.6; 
+}
+
+.cardinal {
+   margin: 0;
+   padding: 0;
+   position: absolute; 
+}
+
+.cardinal-direction {
+   position: relative; 
+   height: 50px;
+}
+
+.bar {
+   width: 100%;
+   height: 25px;
+   background: transparent url(../images/bar.png) no-repeat center center; 
+ }
+
