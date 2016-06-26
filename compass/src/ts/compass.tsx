@@ -46,12 +46,11 @@ class Compass extends React.Component<CompassProps, CompassState> {
   }
 
   componentDidMount() {
-    this.updateClientFacing();
+    this.updateFacingFromClient();
 
     //clear the interval one has already been set
     clearInterval(this.intervalId);
-    
-    this.intervalId = setInterval(() => this.updateFacingFromClient, this.updateSpeed);
+    this.intervalId = setInterval(() => this.updateFacingFromClient(), this.updateSpeed);
   }
   
   componentWillUnmount() {
@@ -68,12 +67,11 @@ class Compass extends React.Component<CompassProps, CompassState> {
     return (
       <div className="compass">
         <div className="cardinal-direction">
-          <h1 className="cardinal" style={this.position(facing, 90) }>N</h1>
           <h1 className="cardinal" style={this.position(facing, 0) }>E</h1>
-          <h1 className="cardinal" style={this.position(facing, 180) }>S</h1>
-          <h1 className="cardinal" style={this.position(facing, 270) }>W</h1>
+          <h1 className="cardinal" style={this.position(facing, 90) }>N</h1>
+          <h1 className="cardinal" style={this.position(facing, 180) }>W</h1>
+          <h1 className="cardinal" style={this.position(facing, 270) }>S</h1>
         </div>
-        <div className="bar"/>
       </div>
     );
   }
