@@ -17,26 +17,27 @@ export interface CompassProps { }
 class Compass extends React.Component<CompassProps, CompassState> {
 
   private updateSpeed: number = 100;
+  private intervalId: NodeJS.Timer; //id returned by the setInterval method
 
   constructor(props: CompassProps) {
     super(props);
   }
 
   angleToPercentage = (facing: number, angle: number): number => {
+    let diff: number = angle - facing;
     if (angle >= facing) {
-      var diff = angle - facing;
       return 50 - diff * 0.75;
     } else {
-      var diff = facing - angle;
-      var d2 = facing - 360 - angle;
+      const d2: number = facing - 360 - angle;
+      diff = facing - angle;
       return Math.abs(d2) < diff ? 50 + d2 * 0.75 : 50 + diff * 0.75;
     }
   }
 
-  updateClientFacing() {
-    let facing = client.facing;
+  updateFacingFromClient() {
+    const facing: number = client.facing;
     if (this.state.facing != facing) {
-      this.setState({ facing: facing })
+      this.setState({ facing: facing });
     };
   }
 
@@ -46,10 +47,15 @@ class Compass extends React.Component<CompassProps, CompassState> {
 
   componentDidMount() {
     this.updateClientFacing();
-    var callback = this;
-    setInterval(() => {
-      callback.updateClientFacing();
-    }, this.updateSpeed);
+
+    //clear the interval one has already been set
+    clearInterval(this.intervalId);
+    
+    this.intervalId = setInterval(() => this.updateFacingFromClient, this.updateSpeed);
+  }
+  
+  componentWillUnmount() {
+    clearInterval(this.intervalId);
   }
 
   position(facing: number, angle: number) {
@@ -57,9 +63,7 @@ class Compass extends React.Component<CompassProps, CompassState> {
   }
 
   render() {
-    let facing = this.state.facing;
-    let enemy = 230;
-    let friend = 20;
+    let facing: number = this.state.facing;
 
     return (
       <div className="compass">
