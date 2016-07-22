@@ -53,7 +53,7 @@ export class InventoryWindow extends React.Component<InventoryWindowProps, Inven
       onDblClick(...args);
       this.lastClicked = 0;
     } else {
-  	  this.lastClicked = now
+      this.lastClicked = now;
     }
   }
 
